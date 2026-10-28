@@ -1,0 +1,166 @@
+
+# ==============================
+# Python cache and compiled files
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==============================
+# Virtual environments
+# ==============================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ==============================
+# Environment variables and secrets
+# ==============================
+.env
+.env.*
+!.env.example
+.envrc
+.streamlit/secrets.toml
+.pypirc
+
+# ==============================
+# Python packaging and build files
+# ==============================
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.Python
+
+# ==============================
+# Testing and coverage
+# ==============================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache/
+.hypothesis/
+coverage.xml
+nosetests.xml
+*.cover
+*.lcov
+
+# ==============================
+# Logs and temporary files
+# ==============================
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+tempCodeRunnerFile.py
+tmp/
+temp/
+
+# ==============================
+# IDE and editor files
+# ==============================
+.vscode/
+.idea/
+.spyderproject
+.spyproject
+.ropeproject
+*.swp
+*.swo
+
+# ==============================
+# Type checking and linting
+# ==============================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+cython_debug/
+
+# ==============================
+# Jupyter
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# Database files
+# ==============================
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3
+instance/
+
+# ==============================
+# YOLO and machine learning artifacts
+# ==============================
+runs/
+wandb/
+mlruns/
+*.onnx
+*.engine
+*.pt
+*.pth
+*.weights
+*.ckpt
+
+# ==============================
+# Generated datasets and outputs
+# ==============================
+# Uncomment these if you don't want to upload
+# generated data or prediction results.
+# datasets/
+# outputs/
+# sample_data/
+
+# ==============================
+# Project-specific generated files
+# ==============================
+# Add generated files here if necessary.
+
+# ==============================
+# Operating system files
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Other tools
+# ==============================
+.pybuilder/
+target/
+.site/
+.scrapy/
+.abstra/
+.pdm-python
+.pdm-build/
+.pixi/*
+!.pixi/config.toml
+__pypackages__/
+celerybeat-schedule*
+celerybeat.pid
+celerybeat-schedule*
+celerybeat.pid
+
+# Ignore datasets
+/datasets/

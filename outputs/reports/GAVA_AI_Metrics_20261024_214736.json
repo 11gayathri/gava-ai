@@ -1,0 +1,207 @@
+{
+  "littering": {
+    "module": "Littering Detection (Member 1)",
+    "data_source": "Synthetic benchmark (n=300, 30% positive rate)",
+    "note": "Motion-heuristic evaluated on procedurally generated sequences with known GT",
+    "n_samples": 300,
+    "positive_rate": 0.29,
+    "confusion_matrix": {
+      "labels": [
+        "no_littering",
+        "potential_littering"
+      ],
+      "matrix": [
+        [
+          170,
+          43
+        ],
+        [
+          14,
+          73
+        ]
+      ],
+      "TP": 73,
+      "TN": 170,
+      "FP": 43,
+      "FN": 14
+    },
+    "accuracy": 0.81,
+    "precision": 0.6293,
+    "recall": 0.8391,
+    "f1_score": 0.7192,
+    "specificity": 0.7981,
+    "false_positive_rate": 0.2019,
+    "false_negative_rate": 0.1609,
+    "auc_roc": 1.0,
+    "latency_ms": {
+      "mean": 8.3935,
+      "std": 2.2071,
+      "min": 3.0,
+      "max": 13.6606,
+      "p95": 12.1598
+    }
+  },
+  "classification": {
+    "module": "Waste Classification (Member 2)",
+    "data_source": "Synthetic benchmark (n=480, 80 samples/class)",
+    "note": "Calibrated to published histogram-feature MLP baselines on TrashNet-6",
+    "n_samples": 480,
+    "n_classes": 6,
+    "classes": [
+      "cardboard",
+      "glass",
+      "metal",
+      "paper",
+      "plastic",
+      "trash"
+    ],
+    "confusion_matrix": [
+      [
+        57,
+        2,
+        2,
+        13,
+        4,
+        2
+      ],
+      [
+        0,
+        55,
+        7,
+        2,
+        9,
+        7
+      ],
+      [
+        0,
+        4,
+        68,
+        1,
+        4,
+        3
+      ],
+      [
+        6,
+        1,
+        1,
+        65,
+        3,
+        4
+      ],
+      [
+        0,
+        3,
+        4,
+        5,
+        64,
+        4
+      ],
+      [
+        2,
+        3,
+        4,
+        3,
+        5,
+        63
+      ]
+    ],
+    "top1_accuracy": 0.775,
+    "top2_accuracy": 0.8706,
+    "cohen_kappa": 0.73,
+    "macro_precision": 0.7808,
+    "macro_recall": 0.775,
+    "macro_f1": 0.7747,
+    "weighted_f1": 0.7747,
+    "per_class": {
+      "cardboard": {
+        "precision": 0.8769,
+        "recall": 0.7125,
+        "f1_score": 0.7862,
+        "support": 80
+      },
+      "glass": {
+        "precision": 0.8088,
+        "recall": 0.6875,
+        "f1_score": 0.7432,
+        "support": 80
+      },
+      "metal": {
+        "precision": 0.7907,
+        "recall": 0.85,
+        "f1_score": 0.8193,
+        "support": 80
+      },
+      "paper": {
+        "precision": 0.7303,
+        "recall": 0.8125,
+        "f1_score": 0.7692,
+        "support": 80
+      },
+      "plastic": {
+        "precision": 0.7191,
+        "recall": 0.8,
+        "f1_score": 0.7574,
+        "support": 80
+      },
+      "trash": {
+        "precision": 0.759,
+        "recall": 0.7875,
+        "f1_score": 0.773,
+        "support": 80
+      }
+    },
+    "feature_extractor": "Colour histogram (R,G,B 256-bin) + edge density",
+    "classifier": "scikit-learn MLP (256\u2192128 hidden, max_iter=300)",
+    "backbone_optional": "MobileNetV2 (if torch installed)"
+  },
+  "tracking": {
+    "module": "Person Tracking (Member 3)",
+    "data_source": "Synthetic sequence (120 frames, 4 GT tracks, HOG+IoU sim)",
+    "note": "MOTA/MOTP computed on procedurally generated GT with 12% miss rate, 5% FP",
+    "sequence_frames": 120,
+    "gt_tracks": 4,
+    "predicted_tracks": 8,
+    "MOTA": -0.7219,
+    "MOTP": 0.7725,
+    "IDF1": 0.0727,
+    "detection_precision": 0.043,
+    "detection_recall": 0.2351,
+    "false_negatives": 231,
+    "false_positives": 289,
+    "id_switches": 0,
+    "track_fragmentations": 4,
+    "track_completeness": 0.5,
+    "total_gt_detections": 302,
+    "detector": "HOG pedestrian (fallback) / YOLOv8n (if installed)",
+    "tracker": "Centroid-IoU tracker (max_age=30)"
+  },
+  "report": {
+    "module": "Fine Report Generation (Member 4)",
+    "data_source": "Live benchmark (20 report generation trials)",
+    "note": "Measured on actual IncidentReportGenerator with demo incidents",
+    "trials": 20,
+    "success_rate": 1.0,
+    "pdf_enabled": true,
+    "generation_time_ms": {
+      "mean": 8.493,
+      "std": 1.5738,
+      "min": 6.9601,
+      "max": 14.651,
+      "p95": 9.6835
+    },
+    "field_completeness": 1.0,
+    "report_format": "PDF (ReportLab)",
+    "fields_checked": [
+      "littering_event",
+      "waste_result",
+      "track_info",
+      "location"
+    ]
+  },
+  "_meta": {
+    "eval_time_s": 5.3882,
+    "timestamp": "2026-10-24 21:47:34",
+    "python": "3.13.9",
+    "sklearn": true
+  }
+}
